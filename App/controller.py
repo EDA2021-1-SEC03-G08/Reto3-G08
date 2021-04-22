@@ -37,15 +37,38 @@ def init():
 
 # Funciones para la carga de datos
 
-def loadData(analyzer, crimesfile):
+def loadData(analyzer, hashTagF):
 
-    crimesfile = cf.data_dir + crimesfile
-    input_file = csv.DictReader(open(crimesfile, encoding="utf-8"),
+    hashTagF = cf.data_dir + hashTagF
+    input_file = csv.DictReader(open(hashTagF, encoding="utf-8"),
                                 delimiter=",")
-    for crime in input_file:
-        model.addCrime(analyzer, crime)
+    for music in input_file:
+        model.addMusicEvent(analyzer, music)
     return analyzer
 
 # Funciones de ordenamiento
 
 # Funciones de consulta sobre el catálogo
+def musicSize(analyzer):
+
+    return model.musicSize(analyzer)
+
+
+def indexHeight(analyzer):
+  
+    return model.indexHeight(analyzer)
+
+
+def indexSize(analyzer):
+
+    return model.indexSize(analyzer)
+
+
+def minKey(analyzer):
+ 
+    return model.minKey(analyzer)
+
+
+def maxKey(analyzer):
+
+    return model.maxKey(analyzer)

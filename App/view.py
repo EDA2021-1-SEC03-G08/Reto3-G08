@@ -65,8 +65,14 @@ while True:
         print("\nInicializando....")
         cont = controller.init()
 
-    elif int(inputs[0]) == 1:
-        print("Cargando información de los archivos ....")
+    elif int(inputs[0]) == 2:
+        print("\nCargando información de los archivos ....")
+        controller.loadData(cont, hashTagF)
+        print('Canciones cargadas: ' + str(controller.musicSize(cont)))
+        print('Altura del arbol: ' + str(controller.indexHeight(cont)))
+        print('Elementos en el arbol: ' + str(controller.indexSize(cont)))
+        print('Menor Llave: ' + str(controller.minKey(cont)))
+        print('Mayor Llave: ' + str(controller.maxKey(cont)))
 
     elif int(inputs[0]) == 2:
         pass
