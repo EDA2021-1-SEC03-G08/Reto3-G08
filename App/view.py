@@ -45,9 +45,9 @@ def printMenu():
     print("Bienvenido")
     print("1- Inicializar Analizador")
     print("2- Cargar información en el catálogo")
-    print("3- ")
-    print("4- ")
-    print("5- ")
+   # print("3- ")
+   # print("4- ")
+   # print("5- ")
 
 
 

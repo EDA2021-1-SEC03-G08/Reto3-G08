@@ -56,10 +56,10 @@ def newAnalyzer():
 # Funciones para agregar informacion al catalogo
 
 def addMusicEvent(analyzer, musicEvent):
-
+    userId = musicEvent["user_id"]
 
     lt.addLast(analyzer['registros'], musicEvent)
-   
+    om.put(analyzer["pistas"], userId,musicEvent)
 
     return analyzer
 
@@ -75,10 +75,10 @@ def newMusicEvent(musicEvent):
     binario.
     """
     entry = {'trackId': None, 'artistId': None}
-    entry['trackId'] = m.newMap(numelements= 100000000,
+    entry['trackId'] = mp.newMap(numelements= 100000000,
                                      maptype='PROBING',
-                                     comparefunction=compareOffenses)
-    entry['artistId'] = lt.newList('SINGLE_LINKED', compareDates)
+                                     comparefunction=compareIds(id1, id2))
+    entry['artistId'] = lt.newList('SINGLE_LINKED', compareTrackId(tId1, tId2))
     return entry
 
 
@@ -99,7 +99,7 @@ def indexSize(analyzer):
     return om.size(analyzer['pistas'])
 
 def minKey(analyzer):
-  
+
     return om.minKey(analyzer['pistas'])
 
 def maxKey(analyzer):
